@@ -4,6 +4,7 @@ using System.Threading;
 
 namespace LegacyApp
 {
+    //bl + infrastuktura
     public class UserCreditService : IDisposable
     {
         /// <summary>

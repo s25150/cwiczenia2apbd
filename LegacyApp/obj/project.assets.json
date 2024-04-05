@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/pgago/.nuget/packages/": {}
+    "C:\\Users\\MissF\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/pgago/Projects/PJATK/classes-materials/APBD/lecture_3/zadanie/LegacyApp/LegacyApp.csproj",
+      "projectUniqueName": "C:\\Users\\MissF\\Documents\\studies\\apbd\\cwiczenia2\\cwiczenia2apbd\\LegacyApp\\LegacyApp.csproj",
       "projectName": "LegacyApp",
-      "projectPath": "/Users/pgago/Projects/PJATK/classes-materials/APBD/lecture_3/zadanie/LegacyApp/LegacyApp.csproj",
-      "packagesPath": "/Users/pgago/.nuget/packages/",
-      "outputPath": "/Users/pgago/Projects/PJATK/classes-materials/APBD/lecture_3/zadanie/LegacyApp/obj/",
+      "projectPath": "C:\\Users\\MissF\\Documents\\studies\\apbd\\cwiczenia2\\cwiczenia2apbd\\LegacyApp\\LegacyApp.csproj",
+      "packagesPath": "C:\\Users\\MissF\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MissF\\Documents\\studies\\apbd\\cwiczenia2\\cwiczenia2apbd\\LegacyApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/pgago/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\MissF\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

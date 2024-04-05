@@ -2,6 +2,7 @@
 
 namespace LegacyApp
 {
+    //bl
     public class User
     {
         public object Client { get; internal set; }
