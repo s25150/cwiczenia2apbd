@@ -11,17 +11,22 @@ public interface IUserValidation
     /**
      * method checks if one of two values are nulls
      */
-    public bool IsNull(string fname, string lname);
+    protected bool IsNull(User user);
 
 
     /**
      * method checks if string contains
      */
-    public bool DoesNotContain(string email);
+    protected bool DoesNotContain(User user);
     
     /**
      * method checks if age is at least 21
      */
-    public bool IsAgeAtLeast21(DateTime dateOfBirth);
+    protected bool IsAgeAtLeast21(User user);
+
+    /**
+     * method checks credit limit of client
+     */
+    protected bool CheckClientCreditLimit(User user);
 
 }
