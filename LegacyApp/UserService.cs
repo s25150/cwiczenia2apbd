@@ -1,33 +1,28 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LegacyApp
 {
     public class UserService
     {
+        private ClientRepository _clientRepository = new ClientRepository();
+        private UserCreditService _userCreditService = new UserCreditService();
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
-            //bl
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+            var operations = new UserOperations(firstName, lastName, email, dateOfBirth);
+            var result = operations.ValidationResult;
+            if (!result)
             {
-                return false;
+                return result;
             }
-            //bl
-            if (!email.Contains("@") && !email.Contains("."))
-            {
-                return false;
-            }
-            //bl
-            var now = DateTime.Now;
-            int age = now.Year - dateOfBirth.Year;
-            if (now.Month < dateOfBirth.Month || (now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day)) age--;
-            //bl
-            if (age < 21)
-            {
-                return false;
-            }
+            
+            
             //infrastruktura
-            var clientRepository = new ClientRepository();
-            var client = clientRepository.GetById(clientId);
+            //var clientRepository = new ClientRepository();
+            var client = _clientRepository.GetById(clientId);
+            
+            
             //bl
             var user = new User
             {
@@ -45,10 +40,10 @@ namespace LegacyApp
             else if (client.Type == "ImportantClient")
             {
                 //infrastruktura
-                using (var userCreditService = new UserCreditService())
+                using (_userCreditService)
                 {
                     
-                    int creditLimit = userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
+                    int creditLimit = _userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
                     creditLimit = creditLimit * 2;
                     user.CreditLimit = creditLimit;
                 }
@@ -57,9 +52,9 @@ namespace LegacyApp
             {
                 user.HasCreditLimit = true;
                 //infrastruktura
-                using (var userCreditService = new UserCreditService())
+                using (_userCreditService)
                 {
-                    int creditLimit = userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
+                    int creditLimit = _userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
                     user.CreditLimit = creditLimit;
                 }
             }
