@@ -1,25 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace LegacyApp
 {
-    //bl + infrastuktura
     public class UserCreditService : IDisposable
     {
-        /// <summary>
-        /// Simulating database
-        /// </summary>
-        private readonly Dictionary<string, int> _database =
-            new Dictionary<string, int>()
-            {
-                {"Kowalski", 200},
-                {"Malewski", 20000},
-                {"Smith", 10000},
-                {"Doe", 3000},
-                {"Kwiatkowski", 1000}
-            };
-        
+        private static readonly DatabaseSimulation _database = new DatabaseSimulation();
+
         public void Dispose()
         {
             //Simulating disposing of resources
@@ -34,8 +21,8 @@ namespace LegacyApp
             int randomWaitingTime = new Random().Next(3000);
             Thread.Sleep(randomWaitingTime);
 
-            if (_database.ContainsKey(lastName))
-                return _database[lastName];
+            if (_database._usersdatabase.ContainsKey(lastName))
+                return _database._usersdatabase[lastName];
 
             throw new ArgumentException($"Client {lastName} does not exist");
         }

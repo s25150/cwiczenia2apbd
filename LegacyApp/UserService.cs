@@ -6,11 +6,11 @@ namespace LegacyApp
 {
     public class UserService
     {
-        private ClientRepository _clientRepository = new ClientRepository();
-        private UserCreditService _userCreditService = new UserCreditService();
+        private FakeClientRepository _fakeClientRepository = new FakeClientRepository();
+        private FakeUserCreditService _fakeUserCreditService = new FakeUserCreditService();
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
-            var client = _clientRepository.GetById(clientId);
+            var client = _fakeClientRepository._clientRepository.GetById(clientId);
             var user = new User(client, dateOfBirth, email, firstName, lastName);
             var operations = new UserOperations(user);
             var result = operations.ValidationResult;
@@ -19,7 +19,7 @@ namespace LegacyApp
                 return result;
             }
             
-            operations.CheckClientImportancy(client, user, _userCreditService);
+            operations.CheckClientImportancy(client, user, _fakeUserCreditService._UserCreditService);
             UserDataAccess.AddUser(user);
             return true;
         }
